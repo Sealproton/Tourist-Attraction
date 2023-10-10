@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import axios from "axios";
+import { createContext, useContext, useState } from 'react';
+import axios from 'axios';
 const UserContext = createContext();
 
 // -------------------------------------------context-provider--------------------------------------
@@ -8,7 +8,7 @@ export const ContextProvider = ({ children }) => {
   const getData = async () => {
     try {
       const fetchData = await axios.get(
-        `http://localhost:4001/trips?keywords=${input.trim()}`
+        `https://touristserver-6vof.onrender.com/trips?keywords=${input.trim()}`
       );
       setData(fetchData.data.data);
     } catch (error) {
@@ -17,7 +17,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   // ------------------------------Data--------------------------------------------------
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [data, setData] = useState([]);
 
   return (
